@@ -1,8 +1,0 @@
-1. I would consider the person to be hopeful, generaly calm/neutral, but
-also upbeat. This is because the average energy is 0.65, the average
-valence is 0.48, and the average danceability is 0.71
-
-2. The best answer I have is that we're only calculating the "happiness" of
-the music, and while a low score of course means "less happy", there isn't
-necesarrily a measure to gauge anger or frustration in the music, which could
-lead to inaccurate results.
