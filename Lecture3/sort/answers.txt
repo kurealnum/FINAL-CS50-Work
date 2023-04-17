@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Process of elimination; wasn't able to choose between either Selection or Bubble.
+
+sort2 uses: Merge sort
+
+How do you know?: Average times on reversed.txt and sorted.txt, then a very fast time on random.txt.
+
+sort3 uses: Selection sort
+
+How do you know?: Average times.

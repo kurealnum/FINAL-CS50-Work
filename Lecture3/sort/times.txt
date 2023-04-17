@@ -1,0 +1,5 @@
+sort1 times: real on reversed10K = 292, real on sorted10K = 80, real on random10K = 342
+
+sort2 times: real on reversed10K = 100, real on sorted10K = 102, real on random10K = 308(bubble sort?)
+
+sort3 times: real on reversed10K = 182, real on sorted10K = 190, real on random10K = 254
