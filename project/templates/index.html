@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+{% if not files %}
+
+<p>Welcome! Please upload a file to get started.</p>
+
+{% else %}
+<div class="main-table">
+    <table class="table table-striped">
+        <thead>
+            <th class="text-middle">Files</th>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <th class="text-middle"><li><a href="{{ url_for('files', file=file)}}">{{ file }}</a></li></th>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table action="/" class="table table-striped">
+        <thead>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Total</th>
+        </thead>
+        <tbody>
+            {% for i in range(symbols|length) %}
+            <tr>
+                <th class="text-start">{{ symbols[i]["symbol"] }}</th>
+                <th class="text-start">{{ names[i] }}</th>
+                <th class="text-end">{{ shares[i]["num_shares"] }}</th>
+                <th class="text-end">{{ prices[i]["price"] | usd }}</th>
+                <th class="text-end">{{ total_in_shares[i] | usd }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan-"4">Available Cash</td>
+                <td class="border-0 text-end"> {{ cash[0]["cash"] | usd }} </td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan-"4">Total</td>
+                <td class="border-0 text-end"> {{ total | usd}}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

@@ -1,0 +1,29 @@
+.main_body {
+    text-align: center;
+    padding: 20px;
+    max-width: 70%;
+    position: static;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: auto;
+}
+
+footer {
+    overflow: auto;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ file }}
+{% endblock %}
+
+{% block main %}
+
+<div class="main-table">
+  <table class="table table-striped">
+      <thead>
+        {% for row in csv_file[0] %}
+        <th>{{ row }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for row in csv_file[1:] %}
+          <tr>
+            {% for column in range(row|length) %}
+            <th>{{ row[column] }}</th>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+
+{% endblock %}
+

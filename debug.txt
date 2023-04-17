@@ -1,0 +1,21 @@
+Introduction:
+Remember to plan your work out
+
+1. Check the syntax (GPT should catch this)
+2. Walk through your logic
+
+2.5. If it's an algorithm:
+Are you considering all possible data structures?
+Could you have multiple options for different cases?
+Did you whiteboard it?
+
+3. Reference other code of yours
+
+3.5. Before you google it:
+-Should I know this code?
+-Should I be able to do this?
+-Did I thoroughly complete steps 1-3?
+
+4. Google it
+5. Ask GPT
+

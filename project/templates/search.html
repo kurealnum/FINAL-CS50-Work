@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+
+<form action="/search">
+    <div class="form-group">
+        <div class="mx-auto" style="max-width: 250px;">
+            <input class="form-control" type="text" placeholder="Search" id="search" name="search">
+            <br>
+            <p>from file</p>
+            <select mulitple class="form-control" name="file_name" id="file_name">
+                <option disabled selected>Select file</option>
+                {% for file in files %}
+                <option value="{{ file }}">{{ file }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <p>from column</p>
+            <select mulitple class="form-control" name="column" id="column">
+                <option disabled selected>Select file first</option>
+            </select>
+        </div>
+    </div>
+</form>
+
+<div class="p-5 mx-auto" style="max-width: 500px; word-wrap: break-word;">
+    <ul id="search_return" class="list-group"></ul>
+</div>
+
+<script>
+
+    //update the search return if the search_field is changed (i.e. user types something in)
+    let input = document.getElementById('search');
+    input.addEventListener('input', async function() {
+        let file_name = document.getElementById('file_name');
+        let selected_column = document.getElementById('column');
+        let search_field = await fetch('/search?request_type=search&file_name=' + file_name.value + '&search=' + input.value + '&column=' + selected_column.value);
+        let search_field_text = await search_field.text();
+        document.getElementById('search_return').innerHTML = search_field_text;
+    });
+
+    //event listener for updating the columns dropdown, by which file name the user has selected
+    let columns_update = document.getElementById('file_name');
+    columns_update.addEventListener('change', async function(){
+        let update = await fetch('/search?request_type=update&file_name=' + columns_update.value);
+        let columns = await update.text();
+        document.getElementById('column').innerHTML = columns;
+
+        let file_name = document.getElementById('file_name');
+        let selected_column = document.getElementById('column');
+        let input = document.getElementById('search');
+        let search_field = await fetch('/search?request_type=search&file_name=' + file_name.value + '&search=' + input.value + '&column=' + selected_column.value);
+        let search_field_text = await search_field.text();
+        document.getElementById('search_return').innerHTML = search_field_text;
+    });
+
+    //update the search return if the file is selected, and the user selects a different column
+    let column_to_update = document.getElementById('column');
+    column_to_update.addEventListener('change', async function() {
+        let file_name = document.getElementById('file_name');
+        let selected_column = document.getElementById('column');
+        let input = document.getElementById('search');
+
+        let search_field = await fetch('/search?request_type=search&file_name=' + file_name.value + '&search=' + input.value + '&column=' + selected_column.value);
+        let search_field_text = await search_field.text();
+        document.getElementById('search_return').innerHTML = search_field_text;
+    });
+</script>
+
+{% endblock %}

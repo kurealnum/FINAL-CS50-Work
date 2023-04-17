@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+  <form action="/upload_file" method="post" enctype=multipart/form-data>
+    <div class="form-group">
+      <div class="mx-auto" style="max-width: 250px;">
+        <input type="file" id="myFile" name="filename" class="form-control">
+        <input type="submit" class="form-control">
+        <small class="form-text text-muted">Accepted file types: .csv</small>
+      </div>
+    </div>
+  </form>
+
+{% endblock %}

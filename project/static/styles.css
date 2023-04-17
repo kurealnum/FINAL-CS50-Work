@@ -1,0 +1,24 @@
+/* Center the div horizontally */
+.main-table {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+/* Limit the maximum width of the div */
+.main-table{
+  max-width: 40%;
+  /* Add additional styles as needed */
+}
+
+/* Add additional styles for smaller screens */
+@media (max-width: 767px) {
+  /* Reduce the max-width of the div */
+  .main-table {
+    max-width: 90%;
+    /* Add additional styles as needed */
+  }
+}
+
+
+

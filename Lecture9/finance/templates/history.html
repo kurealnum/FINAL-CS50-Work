@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<table action="/history" class="table table-striped">
+    <thead>
+        <th class="text-start">Symbol</th>
+        <th class="text-end">Shares</th>
+        <th class="text-end">Price</th>
+        <th class="text-end">Transacted</th>
+    </thead>
+    <tbody>
+        {% for i in range(sales_purchase_list | length) %}
+        <tr>
+            <th class="text-start">{{ sales_purchase_list[i]["symbol"] }}</th>
+            <th class="text-end">{{ sales_purchase_list[i]["num_shares"] }}</th>
+            <th class="text-end">{{ sales_purchase_list[i]["price"] | usd }}</th>
+            <th class="text-end">{{ sales_purchase_list[i]["time_transacted"] }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

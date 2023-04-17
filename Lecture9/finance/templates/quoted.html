@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quotes
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <p>{{ official_name }} ({{ symbol }}) is at {{ price | usd}}</p>
+    </div>
+    <form action="/quote" method="get">
+        <button class="btn btn-primary" type="submit">Quote Again</button>
+    </form>
+{% endblock %}
